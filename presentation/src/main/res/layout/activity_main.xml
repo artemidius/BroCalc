@@ -6,13 +6,234 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_800"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/data_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_200"
+                android:layout_weight="1"
+                android:layout_margin="1dp">
+
+                <LinearLayout style="@style/currency_line">
+                    <TextView
+                        android:id="@+id/currency_choice_upper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="USD"
+                        android:textSize="24sp"
+                        android:gravity="center_vertical"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_arrow_drop_down"/>
+                    <TextView
+                        android:id="@+id/currency_value_upper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0123456789"
+                        android:maxLines="1"
+                        android:textSize="24sp"
+                        android:gravity="right|center_vertical"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/currency_line">
+
+                <TextView
+                    android:id="@+id/currency_choice_lower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="USD"
+                    android:textSize="24sp"
+                    android:gravity="center_vertical"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_arrow_drop_down"/>
+                <TextView
+                    android:id="@+id/currency_value_lower"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="0123456789"
+                    android:maxLines="1"
+                    android:textSize="24sp"
+                    android:gravity="right|center_vertical"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/key_container_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b7"
+                        android:text="7" />
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b4"
+                        android:text="4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b8"
+                        android:text="8" />
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b5"
+                        android:text="5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b9"
+                        android:text="9" />
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/b6"
+                        android:text="6" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/calc_button"
+                        android:id="@+id/ac"
+                        android:text="AC"
+                        android:textColor="@color/colorAccent"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/calc_button"
+                            android:id="@+id/b1"
+                            android:text="1" />
+                        <TextView
+                            style="@style/calc_button"
+                            android:id="@+id/b2"
+                            android:text="2" />
+                        <TextView
+                            style="@style/calc_button"
+                            android:id="@+id/b3"
+                            android:text="3" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/calc_button"
+                            android:id="@+id/b0"
+                            android:text="0" />
+                        <TextView
+                            android:layout_weight="2"
+                            android:id="@+id/point"
+                            style="@style/calc_button"
+                            android:text="." />
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    style="@style/calc_button"
+                    android:id="@+id/back"
+                    android:layout_weight="3"
+                    android:padding="32dp"
+                    android:src="@drawable/ic_backspace_black_24dp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

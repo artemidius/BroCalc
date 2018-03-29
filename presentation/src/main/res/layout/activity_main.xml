@@ -21,8 +21,8 @@
 
             <LinearLayout
                 style="@style/typical_ll"
-                android:background="@color/grey_200"
-                android:layout_margin="1dp">
+                android:background="@color/button_background"
+                android:layout_margin=".5dp">
 
                 <LinearLayout style="@style/currency_line">
                     <TextView
@@ -79,12 +79,14 @@
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b7"
-                        android:text="7" />
+                        android:text="7"
+                        android:tag="number"/>
 
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b4"
-                        android:text="4" />
+                        android:text="4"
+                        android:tag="number"/>
 
                 </LinearLayout>
 
@@ -95,12 +97,14 @@
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b8"
+                        android:tag="number"
                         android:text="8" />
 
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b5"
-                        android:text="5" />
+                        android:text="5"
+                        android:tag="number"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -110,12 +114,14 @@
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b9"
-                        android:text="9" />
+                        android:text="9"
+                        android:tag="number"/>
 
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/b6"
-                        android:text="6" />
+                        android:text="6"
+                        android:tag="number"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -149,15 +155,19 @@
                         <TextView
                             style="@style/calc_button"
                             android:id="@+id/b1"
-                            android:text="1" />
+                            android:text="1"
+                            android:tag="number"/>
                         <TextView
                             style="@style/calc_button"
                             android:id="@+id/b2"
-                            android:text="2" />
+                            android:text="2"
+                            android:tag="number"/>
                         <TextView
                             style="@style/calc_button"
                             android:id="@+id/b3"
-                            android:text="3" />
+                            android:text="3"
+                            android:tag="number"
+                            />
 
 
                     </LinearLayout>
@@ -169,7 +179,8 @@
                         <TextView
                             style="@style/calc_button"
                             android:id="@+id/b0"
-                            android:text="0" />
+                            android:text="0"
+                            android:tag="number"/>
                         <TextView
                             android:layout_weight="2"
                             android:id="@+id/point"

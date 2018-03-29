@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BroCalc</string>
+    <string name="base_url">foo</string>
+</resources>

@@ -8,6 +8,8 @@ interface MainContract {
         fun onDataUpdate()
     }
 
-    interface Presenter : ActivityLifeCyclePresenter
+    interface Presenter : ActivityLifeCyclePresenter {
+        fun onClick(view: android.view.View?)
+    }
 
 }

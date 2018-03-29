@@ -28,4 +28,26 @@
         <item name="android:paddingRight">8dp</item>
     </style>
 
+    <style name="currency_choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="currebcy_value">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+
+    <style name="typical_ll">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 </resources>

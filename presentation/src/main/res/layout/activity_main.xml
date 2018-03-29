@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_800"
+        android:background="@color/layout_background"
         android:orientation="vertical">
 
         <LinearLayout
@@ -20,32 +20,23 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                style="@style/typical_ll"
                 android:background="@color/grey_200"
-                android:layout_weight="1"
                 android:layout_margin="1dp">
 
                 <LinearLayout style="@style/currency_line">
                     <TextView
                         android:id="@+id/currency_choice_upper"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="USD"
-                        android:textSize="24sp"
-                        android:gravity="center_vertical"/>
+                        android:text="usd"
+                        style="@style/currency_choice" />
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_arrow_drop_down"/>
                     <TextView
                         android:id="@+id/currency_value_upper"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:text="0123456789"
-                        android:maxLines="1"
-                        android:textSize="24sp"
-                        android:gravity="right|center_vertical"/>
+                        style="@style/currebcy_value" />
 
                 </LinearLayout>
 
@@ -55,23 +46,16 @@
 
                 <TextView
                     android:id="@+id/currency_choice_lower"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="USD"
-                    android:textSize="24sp"
-                    android:gravity="center_vertical"/>
+                    android:text="usd"
+                    style="@style/currency_choice"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_arrow_drop_down"/>
                 <TextView
                     android:id="@+id/currency_value_lower"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:text="0123456789"
-                    android:maxLines="1"
-                    android:textSize="24sp"
-                    android:gravity="right|center_vertical"/>
+                    style="@style/currebcy_value" />
 
             </LinearLayout>
 
@@ -81,21 +65,15 @@
 
         <LinearLayout
             android:id="@+id/key_container_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            style="@style/typical_ll"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/typical_ll"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    style="@style/typical_ll"
                     android:orientation="vertical">
 
                     <TextView
@@ -111,10 +89,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    style="@style/typical_ll">
 
                     <TextView
                         style="@style/calc_button"
@@ -128,9 +104,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    style="@style/typical_ll"
                     android:orientation="vertical">
 
                     <TextView
@@ -145,16 +119,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    style="@style/typical_ll"
                     android:orientation="vertical">
 
                     <TextView
                         style="@style/calc_button"
                         android:id="@+id/ac"
                         android:text="AC"
-                        android:textColor="@color/colorAccent"/>
+                        android:textColor="@color/orange_500"/>
 
                 </LinearLayout>
 
@@ -162,22 +134,16 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/typical_ll"
                 android:orientation="horizontal">
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    style="@style/typical_ll"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        style="@style/typical_ll"
                         android:orientation="horizontal">
 
                         <TextView
@@ -197,9 +163,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        style="@style/typical_ll"
                         android:orientation="horizontal">
 
                         <TextView

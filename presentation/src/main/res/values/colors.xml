@@ -7,4 +7,5 @@
     <color name="layout_background">#795548</color>
     <color name="grey_800">#424242</color>
     <color name="grey_200">#EEEEEE</color>
+    <color name="orange_500">#FF5722</color>
 </resources>

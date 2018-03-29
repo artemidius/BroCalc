@@ -42,7 +42,7 @@ dependencies {
     androidTestImplementation testDependencies.mockito
 
     //third-party
-    compile thirdPartyDependencies.rxjava
+    implementation thirdPartyDependencies.rxjava
 }
 repositories {
     mavenCentral()

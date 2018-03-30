@@ -5,10 +5,18 @@ import android.view.View
 import android.widget.TextView
 import com.tomtom.tom.brocalc.R.id.*
 import com.tomtom.tom.brocalc.base.BasePresenter
+import com.tomtom.tom.domain.model.ScreenViewModel
 
 class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.Presenter {
 
+    private val tag = this.javaClass.simpleName
     val view:MainContract.View = mainActivity
+
+    var currentScreen = ScreenViewModel(
+            "USD",
+            "RUB",
+            "0",
+            "0")
 
     override fun onClick(view: View?) {
         if (view != null) {
@@ -31,9 +39,11 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
         }
     }
 
-    private val tag = this.javaClass.simpleName
-
-    override fun onCreate()       {  Log.d(tag, "Fragment triggered onResume()")    }
+    override fun onCreate()       {
+        Log.d(tag, "Fragment triggered onCreate()")
+        currentScreen.currencyTypeLower = "JJJ"
+        view.onDataUpdate(currentScreen)
+    }
     override fun onResume()       {  Log.d(tag, "Fragment triggered onResume()")    }
     override fun onPause()        {  Log.d(tag, "Fragment triggered onPause()")     }
     override fun onDestroy()      {  Log.d(tag, "Fragment triggered onDestroy()")   }

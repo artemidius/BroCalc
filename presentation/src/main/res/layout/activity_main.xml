@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="model" type="com.tomtom.tom.domain.model.ScreenViewModel"/>
+    </data>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
                 <LinearLayout style="@style/currency_line">
                     <TextView
                         android:id="@+id/currency_choice_upper"
-                        android:text="usd"
+                        android:text="@{model.currencyTypeUpper}"
                         style="@style/currency_choice" />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -35,7 +34,7 @@
                         android:src="@drawable/ic_arrow_drop_down"/>
                     <TextView
                         android:id="@+id/currency_value_upper"
-                        android:text="0123456789"
+                        android:text="@{model.currencyValueUpper}"
                         style="@style/currebcy_value" />
 
                 </LinearLayout>
@@ -46,7 +45,7 @@
 
                 <TextView
                     android:id="@+id/currency_choice_lower"
-                    android:text="usd"
+                    android:text="@{model.currencyTypeLower}"
                     style="@style/currency_choice"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -54,7 +53,7 @@
                     android:src="@drawable/ic_arrow_drop_down"/>
                 <TextView
                     android:id="@+id/currency_value_lower"
-                    android:text="0123456789"
+                    android:text="@{model.currencyValueLower}"
                     style="@style/currebcy_value" />
 
             </LinearLayout>
@@ -211,4 +210,4 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</layout>

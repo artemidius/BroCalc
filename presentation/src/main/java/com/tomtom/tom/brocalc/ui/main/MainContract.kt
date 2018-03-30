@@ -1,11 +1,12 @@
 package com.tomtom.tom.brocalc.ui.main
 
 import com.tomtom.tom.brocalc.base.ActivityLifeCyclePresenter
+import com.tomtom.tom.domain.model.ScreenViewModel
 
 
 interface MainContract {
     interface View {
-        fun onDataUpdate()
+        fun onDataUpdate(model: ScreenViewModel)
     }
 
     interface Presenter : ActivityLifeCyclePresenter {

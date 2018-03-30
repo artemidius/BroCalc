@@ -24,11 +24,18 @@ android {
             includeAndroidResources = true
         }
     }
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 kapt {
     generateStubs = true
 }
+
+
+
 
 dependencies {
 
@@ -64,7 +71,7 @@ dependencies {
     kapt thirdPartyDependencies.anno_proc_android
 
 
-    implementation project(':data')
+    compile project(':data')
 }
 repositories {
     mavenCentral()

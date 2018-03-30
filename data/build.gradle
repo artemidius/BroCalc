@@ -47,7 +47,7 @@ dependencies {
     implementation thirdPartyDependencies.retrofit_gson
     implementation thirdPartyDependencies.retrofit_rx
 
-    implementation project(':domain')
+    compile project(':domain')
 }
 repositories {
     mavenCentral()

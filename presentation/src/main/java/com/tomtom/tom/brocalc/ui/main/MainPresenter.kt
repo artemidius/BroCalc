@@ -5,18 +5,24 @@ import android.view.View
 import android.widget.TextView
 import com.tomtom.tom.brocalc.R.id.*
 import com.tomtom.tom.brocalc.base.BasePresenter
+import com.tomtom.tom.domain.boundaries.ClearScreenUseCase
+import com.tomtom.tom.domain.boundaries.Interactor
 import com.tomtom.tom.domain.model.ScreenViewModel
+import com.tomtom.tom.domain.usecases.ClearScreenUseCaseImpl
 
-class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.Presenter {
+class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.Presenter, Interactor.Presentation {
+
 
     private val tag = this.javaClass.simpleName
     val view:MainContract.View = mainActivity
 
+    val clearScreenUseCase:ClearScreenUseCase = ClearScreenUseCaseImpl()
+
     var currentScreen = ScreenViewModel(
             "USD",
             "RUB",
-            "0",
-            "0")
+            "10",
+            "40")
 
     override fun onClick(view: View?) {
         if (view != null) {
@@ -26,7 +32,7 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
             } else {
                 when (view.id) {
                     point -> Log.i(tag, "point")
-                    ac -> Log.i(tag, "AC")
+                    ac -> clearScreenUseCase.run(currentScreen, this)
                     back -> Log.i(tag, "back")
                     currency_choice_upper -> Log.i(tag, "currency_choice_upper")
                     currency_choice_lower -> Log.i(tag, "currency_choice_lower")
@@ -37,6 +43,11 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
                 }
             }
         }
+    }
+
+    override fun onScreenCleaned(screenViewModel: ScreenViewModel) {
+        currentScreen = screenViewModel
+        view.onDataUpdate(currentScreen)
     }
 
     override fun onCreate()       {

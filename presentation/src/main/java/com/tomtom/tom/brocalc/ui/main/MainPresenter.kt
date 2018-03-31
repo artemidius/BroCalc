@@ -7,6 +7,7 @@ import com.tomtom.tom.brocalc.R.id.*
 import com.tomtom.tom.brocalc.base.BasePresenter
 import com.tomtom.tom.domain.boundaries.ClearScreenUseCase
 import com.tomtom.tom.domain.boundaries.Interactor
+import com.tomtom.tom.domain.model.CurrencyRow
 import com.tomtom.tom.domain.model.ScreenViewModel
 import com.tomtom.tom.domain.usecases.ClearScreenUseCaseImpl
 
@@ -18,11 +19,13 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
 
     val clearScreenUseCase:ClearScreenUseCase = ClearScreenUseCaseImpl()
 
-    var currentScreen = ScreenViewModel(
-            "USD",
-            "RUB",
-            "10",
-            "40")
+    var currentScreen = getInitialScreen()
+
+    fun getInitialScreen():ScreenViewModel =
+        ScreenViewModel(
+            CurrencyRow("USD", "1"),
+            CurrencyRow("RUB", "52")
+        )
 
     override fun onClick(view: View?) {
         if (view != null) {
@@ -52,9 +55,10 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
 
     override fun onCreate()       {
         Log.d(tag, "Fragment triggered onCreate()")
-        currentScreen.currencyTypeLower = "JJJ"
+        currentScreen.lowerRow.currencyValue = "666"
         view.onDataUpdate(currentScreen)
     }
+
     override fun onResume()       {  Log.d(tag, "Fragment triggered onResume()")    }
     override fun onPause()        {  Log.d(tag, "Fragment triggered onPause()")     }
     override fun onDestroy()      {  Log.d(tag, "Fragment triggered onDestroy()")   }

@@ -16,8 +16,6 @@ class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
 
     lateinit var binding:ViewDataBinding
 
-
-
     val presenter:MainContract.Presenter = MainPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {

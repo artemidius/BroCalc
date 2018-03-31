@@ -26,7 +26,7 @@
                 <LinearLayout style="@style/currency_line">
                     <TextView
                         android:id="@+id/currency_choice_upper"
-                        android:text="@{model.currencyTypeUpper}"
+                        android:text="@{model.upperRow.currencyType}"
                         style="@style/currency_choice" />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
                         android:src="@drawable/ic_arrow_drop_down"/>
                     <TextView
                         android:id="@+id/currency_value_upper"
-                        android:text="@{model.currencyValueUpper}"
+                        android:text="@{model.upperRow.currencyValue}"
                         style="@style/currebcy_value" />
 
                 </LinearLayout>
@@ -45,7 +45,7 @@
 
                 <TextView
                     android:id="@+id/currency_choice_lower"
-                    android:text="@{model.currencyTypeLower}"
+                    android:text="@{model.lowerRow.currencyType}"
                     style="@style/currency_choice"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -53,12 +53,10 @@
                     android:src="@drawable/ic_arrow_drop_down"/>
                 <TextView
                     android:id="@+id/currency_value_lower"
-                    android:text="@{model.currencyValueLower}"
+                    android:text="@{model.lowerRow.currencyValue}"
                     style="@style/currebcy_value" />
 
             </LinearLayout>
-
-
 
         </LinearLayout>
 

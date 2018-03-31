@@ -27,7 +27,9 @@
                     <TextView
                         android:id="@+id/currency_choice_upper"
                         android:text="@{model.upperRow.currencyType}"
-                        style="@style/currency_choice" />
+                        style="@style/currency_choice"
+
+                        />
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -35,6 +37,8 @@
                     <TextView
                         android:id="@+id/currency_value_upper"
                         android:text="@{model.upperRow.currencyValue}"
+                        android:textColor="@{model.upperRow.active ? @color/orange_500 : @color/grey_800}"
+
                         style="@style/currebcy_value" />
 
                 </LinearLayout>
@@ -54,6 +58,7 @@
                 <TextView
                     android:id="@+id/currency_value_lower"
                     android:text="@{model.lowerRow.currencyValue}"
+                    android:textColor="@{model.lowerRow.active ? @color/orange_500 : @color/grey_800}"
                     style="@style/currebcy_value" />
 
             </LinearLayout>

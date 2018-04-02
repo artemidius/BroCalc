@@ -69,6 +69,9 @@ dependencies {
     kapt thirdPartyDependencies.anno_proc
     kapt thirdPartyDependencies.anno_proc_android
 
+    //third-party
+    implementation thirdPartyDependencies.rxjava
+
 
     compile project(':data')
 }

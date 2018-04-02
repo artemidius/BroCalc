@@ -2,9 +2,9 @@ package com.tomtom.tom.domain.boundaries
 
 import com.tomtom.tom.domain.model.ScreenViewModel
 
-interface NumberInputUseCase {
+interface ChangeRowUseCase {
     fun run(
-            symbol:String,
+            index:Int,
             screenViewModel: ScreenViewModel,
             presentationInteractor: Interactor.Presentation,
             prefs: Interactor.Prefs

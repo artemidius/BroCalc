@@ -1,208 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <variable name="model" type="com.tomtom.tom.domain.model.ScreenViewModel"/>
+
+        <import type="android.view.View"/>
+
+
+        <variable
+            name="model"
+            type="com.tomtom.tom.domain.model.ScreenViewModel" />
     </data>
 
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/layout_background"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/data_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:background="@color/layout_background"
             android:orientation="vertical">
 
             <LinearLayout
-                style="@style/typical_ll"
-                android:background="@color/button_background"
-                android:layout_margin=".5dp">
+                android:id="@+id/data_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    style="@style/typical_ll"
+                    android:layout_margin=".5dp"
+                    android:background="@color/button_background">
+
+                    <LinearLayout style="@style/currency_line">
+
+                        <TextView
+                            android:id="@+id/currency_choice_upper"
+                            style="@style/currency_choice"
+                            android:text="@{model.upperRow.currencyType}"
+
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_arrow_drop_down" />
+
+                        <TextView
+                            android:id="@+id/currency_value_upper"
+                            style="@style/currebcy_value"
+                            android:text="@{model.upperRow.currencyValue}"
+
+                            android:textColor="@{model.upperRow.active ? @color/orange_500 : @color/grey_800}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <LinearLayout style="@style/currency_line">
-                    <TextView
-                        android:id="@+id/currency_choice_upper"
-                        android:text="@{model.upperRow.currencyType}"
-                        style="@style/currency_choice"
 
-                        />
+                    <TextView
+                        android:id="@+id/currency_choice_lower"
+                        style="@style/currency_choice"
+                        android:text="@{model.lowerRow.currencyType}" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_arrow_drop_down"/>
-                    <TextView
-                        android:id="@+id/currency_value_upper"
-                        android:text="@{model.upperRow.currencyValue}"
-                        android:textColor="@{model.upperRow.active ? @color/orange_500 : @color/grey_800}"
+                        android:src="@drawable/ic_arrow_drop_down" />
 
-                        style="@style/currebcy_value" />
+                    <TextView
+                        android:id="@+id/currency_value_lower"
+                        style="@style/currebcy_value"
+                        android:text="@{model.lowerRow.currencyValue}"
+                        android:textColor="@{model.lowerRow.active ? @color/orange_500 : @color/grey_800}" />
 
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/currency_line">
-
-                <TextView
-                    android:id="@+id/currency_choice_lower"
-                    android:text="@{model.lowerRow.currencyType}"
-                    style="@style/currency_choice"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_arrow_drop_down"/>
-                <TextView
-                    android:id="@+id/currency_value_lower"
-                    android:text="@{model.lowerRow.currencyValue}"
-                    android:textColor="@{model.lowerRow.active ? @color/orange_500 : @color/grey_800}"
-                    style="@style/currebcy_value" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/key_container_container"
-            style="@style/typical_ll"
-            android:orientation="vertical">
-
-            <LinearLayout
-                style="@style/typical_ll"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    style="@style/typical_ll"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b7"
-                        android:text="7"
-                        android:tag="number"/>
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b4"
-                        android:text="4"
-                        android:tag="number"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    style="@style/typical_ll">
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b8"
-                        android:tag="number"
-                        android:text="8" />
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b5"
-                        android:text="5"
-                        android:tag="number"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/typical_ll"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b9"
-                        android:text="9"
-                        android:tag="number"/>
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/b6"
-                        android:text="6"
-                        android:tag="number"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/typical_ll"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/calc_button"
-                        android:id="@+id/ac"
-                        android:text="AC"
-                        android:textColor="@color/orange_500"/>
-
-                </LinearLayout>
-
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/key_container_container"
                 style="@style/typical_ll"
-                android:orientation="horizontal">
-
+                android:orientation="vertical">
 
                 <LinearLayout
                     style="@style/typical_ll"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         style="@style/typical_ll"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/b7"
                             style="@style/calc_button"
-                            android:id="@+id/b1"
-                            android:text="1"
-                            android:tag="number"/>
-                        <TextView
-                            style="@style/calc_button"
-                            android:id="@+id/b2"
-                            android:text="2"
-                            android:tag="number"/>
-                        <TextView
-                            style="@style/calc_button"
-                            android:id="@+id/b3"
-                            android:text="3"
                             android:tag="number"
-                            />
+                            android:text="7" />
 
+                        <TextView
+                            android:id="@+id/b4"
+                            style="@style/calc_button"
+                            android:tag="number"
+                            android:text="4" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         style="@style/typical_ll"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/b8"
                             style="@style/calc_button"
-                            android:id="@+id/b0"
-                            android:text="0"
-                            android:tag="number"/>
+                            android:tag="number"
+                            android:text="8" />
+
                         <TextView
-                            android:layout_weight="2"
-                            android:id="@+id/point"
+                            android:id="@+id/b5"
                             style="@style/calc_button"
-                            android:text="." />
+                            android:tag="number"
+                            android:text="5" />
+                    </LinearLayout>
 
+                    <LinearLayout
+                        style="@style/typical_ll"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/b9"
+                            style="@style/calc_button"
+                            android:tag="number"
+                            android:text="9" />
+
+                        <TextView
+                            android:id="@+id/b6"
+                            style="@style/calc_button"
+                            android:tag="number"
+                            android:text="6" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/typical_ll"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ac"
+                            style="@style/calc_button"
+                            android:text="AC"
+                            android:textColor="@color/orange_500" />
 
                     </LinearLayout>
 
 
                 </LinearLayout>
 
+                <LinearLayout
+                    style="@style/typical_ll"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    style="@style/calc_button"
-                    android:id="@+id/back"
-                    android:layout_weight="3"
-                    android:padding="32dp"
-                    android:src="@drawable/ic_backspace_black_24dp" />
+
+                    <LinearLayout
+                        style="@style/typical_ll"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            style="@style/typical_ll"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/b1"
+                                style="@style/calc_button"
+                                android:tag="number"
+                                android:text="1" />
+
+                            <TextView
+                                android:id="@+id/b2"
+                                style="@style/calc_button"
+                                android:tag="number"
+                                android:text="2" />
+
+                            <TextView
+                                android:id="@+id/b3"
+                                style="@style/calc_button"
+                                android:tag="number"
+                                android:text="3" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/typical_ll"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/b0"
+                                style="@style/calc_button"
+                                android:tag="number"
+                                android:text="0" />
+
+                            <TextView
+                                android:id="@+id/point"
+                                style="@style/calc_button"
+                                android:layout_weight="2"
+                                android:text="." />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/back"
+                        style="@style/calc_button"
+                        android:layout_weight="3"
+                        android:padding="32dp"
+                        android:src="@drawable/ic_backspace_black_24dp" />
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -211,6 +230,22 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/progressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_800"
+            android:alpha="0.85"
+            android:visibility="@{model.showProgress ? View.VISIBLE : View.GONE}">
 
+            <ProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </FrameLayout>
+
+    </FrameLayout>
 </layout>

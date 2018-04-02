@@ -19,5 +19,5 @@ class RetrofitHelper {
         moviesApi = retrofit.create(MoviesApi::class.java)
     }
 
-    fun getRates(api_key: String, page: String): Single<ApiResponse> = moviesApi.getRates(api_key)
+    fun getRates(api_key: String): Single<ApiResponse> = moviesApi.getRates(api_key)
 }

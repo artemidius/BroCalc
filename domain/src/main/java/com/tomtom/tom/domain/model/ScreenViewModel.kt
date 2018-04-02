@@ -2,7 +2,8 @@ package com.tomtom.tom.domain.model
 
 class ScreenViewModel (
    val upperRow:CurrencyRow,
-   val lowerRow:CurrencyRow
+   val lowerRow:CurrencyRow,
+   var showProgress:Boolean = false
 )
 
 class CurrencyRow (

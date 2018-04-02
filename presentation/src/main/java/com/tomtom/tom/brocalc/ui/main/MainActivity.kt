@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
 
+
     override fun onClick(view: View?) = presenter.onClick(view)
 
     lateinit var binding:ViewDataBinding
@@ -22,9 +23,13 @@ class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        setListeners()
         presenter.onCreate()
 
+    }
+
+    override fun onBootstrap() {
+        progressLayout.visibility = View.GONE
+        setListeners()
     }
 
     fun setListeners() {

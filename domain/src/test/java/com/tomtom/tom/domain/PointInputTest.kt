@@ -1,27 +1,23 @@
 package com.tomtom.tom.domain
 
+import com.tomtom.tom.domain.entities.Entities
 import com.tomtom.tom.domain.model.CurrencyRow
 import com.tomtom.tom.domain.model.ScreenViewModel
-import com.tomtom.tom.domain.usecases.BackspaceUseCaseImpl
-import com.tomtom.tom.domain.usecases.ClearScreenUseCaseImpl
-import com.tomtom.tom.domain.usecases.NumberInputUseCaseImpl
-import com.tomtom.tom.domain.usecases.PointInputUseCaseImpl
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class PointInputTest {
 
     @Test
     fun backspaseWorks() {
 
-        val clearModelOne = PointInputUseCaseImpl().handlePoint(
+        val clearModelOne = Entities().handlePoint(
                 ScreenViewModel(
                     CurrencyRow("USD", "12345", true),
                     CurrencyRow("RUB", "52")
         ))
 
-        val clearModelTwo = PointInputUseCaseImpl().handlePoint(
+        val clearModelTwo = Entities().handlePoint(
                 ScreenViewModel(
                     CurrencyRow("USD", "11"),
                     CurrencyRow("RUB", "1", true, true)

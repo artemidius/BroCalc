@@ -5,6 +5,7 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 interface BackspaceUseCase {
     fun run(
             screenViewModel: ScreenViewModel,
-            presentationInteractor: Interactor.Presentation
+            presentationInteractor: Interactor.Presentation,
+            prefs: Interactor.Prefs
     )
 }

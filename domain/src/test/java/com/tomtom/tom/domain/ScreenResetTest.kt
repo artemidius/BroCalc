@@ -1,11 +1,10 @@
 package com.tomtom.tom.domain
 
+import com.tomtom.tom.domain.entities.Entities
 import com.tomtom.tom.domain.model.CurrencyRow
 import com.tomtom.tom.domain.model.ScreenViewModel
-import com.tomtom.tom.domain.usecases.ClearScreenUseCaseImpl
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class ScreenResetTest {
 
@@ -16,7 +15,7 @@ class ScreenResetTest {
                 CurrencyRow("RUB", "52")
         )
 
-        val clearModel = ClearScreenUseCaseImpl().clearViewModel(mockModel)
+        val clearModel = Entities().clearViewModel(mockModel)
 
         assertEquals("0", clearModel.lowerRow.currencyValue)
         assertEquals("0", clearModel.upperRow.currencyValue)

@@ -7,6 +7,7 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 interface MainContract {
     interface View {
         fun onDataUpdate(model: ScreenViewModel)
+        fun onBootstrap()
     }
 
     interface Presenter : ActivityLifeCyclePresenter {

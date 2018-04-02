@@ -1,5 +1,6 @@
 package com.tomtom.tom.domain
 
+import com.tomtom.tom.domain.entities.Entities
 import com.tomtom.tom.domain.model.CurrencyRow
 import com.tomtom.tom.domain.model.ScreenViewModel
 import com.tomtom.tom.domain.usecases.BackspaceUseCaseImpl
@@ -14,13 +15,13 @@ class NumberInputTest {
     @Test
     fun backspaseWorks() {
 
-        val clearModelOne = NumberInputUseCaseImpl().handleInput("1",
+        val clearModelOne = Entities().handleInput("1",
                 ScreenViewModel(
                     CurrencyRow("USD", "12345", true),
                     CurrencyRow("RUB", "52")
         ))
 
-        val clearModelTwo = NumberInputUseCaseImpl().handleInput("5",
+        val clearModelTwo = Entities().handleInput("5",
                 ScreenViewModel(
                     CurrencyRow("USD", "11"),
                     CurrencyRow("RUB", "1", true, true)

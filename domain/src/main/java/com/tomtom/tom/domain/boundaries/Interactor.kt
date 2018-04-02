@@ -7,11 +7,22 @@ import io.reactivex.Single
 interface Interactor {
 
     interface Presentation {
-        fun onScreenCleaned(screenViewModel: ScreenViewModel)
+        fun onScreenUpdated(screenViewModel: ScreenViewModel)
+        fun activate()
+    }
+
+    interface Prefs {
+        fun readString(key:String):String
+        fun readBoolean(key:String):Boolean
+        fun readInt(key:String):Int
+
+        fun writeString (key:String, value:String)
+        fun writeBoolean (key:String, value:Boolean)
+        fun writeInt (key:String, value:Int)
+        fun localStorageHasSomeRates ():Boolean
     }
 
     interface Backend {
-        fun downloadRates(api_key:String):Single<ApiResponse>
+        fun downloadRates(api_key:String): Single<ApiResponse>
     }
-
 }

@@ -11,11 +11,16 @@ Create Currency convertion app.
 App accepts numper as an input in one currency and outputs number in another. 
 
 Requirements
+
 • java/kotlin.
+
 • RxJava, Data Binding, Kotlin
+
 • Use MVP (Clean Architecture)
 
+
 Test covereage as a plus
+
 Use  http://fixer.io/ for rates
 
 ### ARCHITECTURE

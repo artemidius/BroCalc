@@ -7,6 +7,6 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 
 class ClearScreenUseCaseImpl : ClearScreenUseCase {
 
-    override fun run(screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation) = presentationInteractor.onScreenUpdated(Entities().clearViewModel(screenViewModel))
+    override fun run(screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation) = presentationInteractor.updateScreen(Entities().clearViewModel(screenViewModel))
 
 }

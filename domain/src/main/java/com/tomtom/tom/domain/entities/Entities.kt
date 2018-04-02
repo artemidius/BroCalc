@@ -97,4 +97,26 @@ class Entities {
         return screenViewModel
     }
 
+    fun changeCurrency(row:Int,
+                       index: Int,
+                       currencies: Array<String>,
+                       screenViewModel: ScreenViewModel):ScreenViewModel {
+
+        val activeRow = if (row == 0) screenViewModel.upperRow else screenViewModel.lowerRow
+        val otherRow = if (row == 0) screenViewModel.lowerRow else screenViewModel.upperRow
+
+        val previousCurrencyType = activeRow.currencyType
+
+        activeRow.isActive = true
+        otherRow.isActive = false
+
+        activeRow.currencyType = currencies[index]
+        if (otherRow.currencyType == activeRow.currencyType) otherRow.currencyType = previousCurrencyType
+
+        activeRow.currencyValue = "1"
+        otherRow.currencyValue = "0"
+
+        return screenViewModel
+    }
+
 }

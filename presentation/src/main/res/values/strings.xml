@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">BroCalc</string>
     <string name="base_url">foo</string>
+    <string name="network_issue">No connection</string>
+    <string name="retry">Retry</string>
+    <string name="loading_rates">Loading rates</string>
 </resources>

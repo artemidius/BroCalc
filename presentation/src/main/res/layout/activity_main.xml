@@ -11,7 +11,8 @@
             type="com.tomtom.tom.domain.model.ScreenViewModel" />
     </data>
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -230,22 +231,5 @@
         </LinearLayout>
 
 
-        <FrameLayout
-            android:id="@+id/progressLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/grey_800"
-            android:alpha="0.85"
-            android:visibility="@{model.showProgress ? View.VISIBLE : View.GONE}">
-
-            <ProgressBar
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:focusable="true"/>
-
-        </FrameLayout>
-
-    </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
 </layout>

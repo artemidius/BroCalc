@@ -9,14 +9,16 @@ class BootstrapUseCaseImpl : BootstrapUseCase {
 
     override fun run(api_key: String, backendInteractor: Interactor.Backend, presentationInteractor: Interactor.Presentation, prefsInteractor: Interactor.Prefs) {
 
-        if (prefsInteractor.localStorageHasSomeRates()) {
-            presentationInteractor.activate()
-        }
+        if (prefsInteractor.localStorageHasSomeRates()) presentationInteractor.activate()
+        else presentationInteractor.showProgressIndicator()
 
         backendInteractor.downloadRates(api_key)
                 .subscribe { response: ApiResponse?, error: Throwable? ->
                     when {
-                        error != null -> error.printStackTrace()
+                        error != null -> {
+                            if(prefsInteractor.localStorageHasSomeRates()) error.printStackTrace()
+                            else presentationInteractor.onDownloadFail()
+                        }
                         response != null -> {
                             System.out.println(response.base)
                             prefsInteractor.writeString("EUR", "1")

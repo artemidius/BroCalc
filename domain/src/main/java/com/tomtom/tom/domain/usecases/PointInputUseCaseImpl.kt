@@ -7,6 +7,6 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 
 class PointInputUseCaseImpl : PointInputUseCase {
 
-    override fun run(screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation) = presentationInteractor.onScreenUpdated(Entities().handlePoint(screenViewModel))
+    override fun run(screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation) = presentationInteractor.updateScreen(Entities().handlePoint(screenViewModel))
 
 }

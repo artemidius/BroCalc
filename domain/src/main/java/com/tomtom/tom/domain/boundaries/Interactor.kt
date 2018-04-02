@@ -7,8 +7,11 @@ import io.reactivex.Single
 interface Interactor {
 
     interface Presentation {
-        fun onScreenUpdated(screenViewModel: ScreenViewModel)
+        fun updateScreen(screenViewModel: ScreenViewModel)
         fun activate()
+        fun onDownloadFail()
+        fun showProgressIndicator()
+
     }
 
     interface Prefs {

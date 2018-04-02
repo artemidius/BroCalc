@@ -8,6 +8,6 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 class BackspaceUseCaseImpl : BackspaceUseCase {
 
     override fun run(screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation, prefs: Interactor.Prefs) =
-            presentationInteractor.onScreenUpdated(Entities().convertActive(Entities().handleBackspace(screenViewModel), prefs))
+            presentationInteractor.updateScreen(Entities().convertActive(Entities().handleBackspace(screenViewModel), prefs))
 
 }

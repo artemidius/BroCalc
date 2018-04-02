@@ -8,7 +8,6 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 class NumberInputUseCaseImpl : NumberInputUseCase {
 
     override fun run(symbol:String, screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation, prefs: Interactor.Prefs) =
-            presentationInteractor.onScreenUpdated(Entities().convertActive(Entities().handleInput(symbol, screenViewModel), prefs)
+            presentationInteractor.updateScreen(Entities().convertActive(Entities().handleInput(symbol, screenViewModel), prefs)
     )
-
 }

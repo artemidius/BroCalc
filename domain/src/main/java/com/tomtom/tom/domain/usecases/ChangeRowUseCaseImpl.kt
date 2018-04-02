@@ -8,7 +8,7 @@ import com.tomtom.tom.domain.model.ScreenViewModel
 class ChangeRowUseCaseImpl : ChangeRowUseCase {
 
     override fun run(index:Int, screenViewModel: ScreenViewModel, presentationInteractor: Interactor.Presentation, prefs: Interactor.Prefs) =
-            presentationInteractor.onScreenUpdated(
+            presentationInteractor.updateScreen(
                     Entities().convertActive(Entities().changeActiveRow(index, screenViewModel), prefs)
             )
 

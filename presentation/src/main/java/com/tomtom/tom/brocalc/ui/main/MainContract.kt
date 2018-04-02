@@ -8,10 +8,14 @@ interface MainContract {
     interface View {
         fun onDataUpdate(model: ScreenViewModel)
         fun onBootstrap()
+        fun showPickerDialog(row:Int)
+        fun onDownloadFailed()
+        fun showProgressSnack(state:Boolean)
     }
 
     interface Presenter : ActivityLifeCyclePresenter {
         fun onClick(view: android.view.View?)
+        fun pickCurrency(index:Int, row:Int)
     }
 
 }

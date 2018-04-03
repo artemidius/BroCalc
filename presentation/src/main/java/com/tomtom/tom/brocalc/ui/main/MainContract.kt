@@ -16,6 +16,7 @@ interface MainContract {
     interface Presenter : ActivityLifeCyclePresenter {
         fun onClick(view: android.view.View?)
         fun pickCurrency(index:Int, row:Int)
+        fun setActivity(mainActivity: MainActivity)
     }
 
 }

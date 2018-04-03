@@ -9,39 +9,49 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.android.databinding.library.baseAdapters.BR
 import com.tomtom.tom.brocalc.R
+import com.tomtom.tom.brocalc.application.BroCalcApplication
 import com.tomtom.tom.brocalc.base.BaseActivity
 import com.tomtom.tom.brocalc.ui.dialogs.PickCurrencyDialogFragment
 import com.tomtom.tom.domain.model.ScreenViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 
 class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
 
+    @Inject
+    lateinit var presenter: MainPresenter
+
     lateinit var binding: ViewDataBinding
     lateinit var progressSnackBar:Snackbar
 
-    val presenter: MainContract.Presenter = MainPresenter(this)
+    lateinit var presenterInterface: MainContract.Presenter
+
     val dialog = PickCurrencyDialogFragment()
     val fragmentManager = this@MainActivity.supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        BroCalcApplication.presenterComponent.inject(this)
+        presenterInterface = presenter
+
         setContentView(R.layout.activity_main)
+        presenterInterface.setActivity(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         progressSnackBar = getProgressSnack()
-        dialog.presenter = presenter
-        presenter.onCreate()
+        dialog.presenter = presenterInterface
+        presenterInterface.onCreate()
     }
 
     override fun onDataUpdate(model: ScreenViewModel) {
         binding.setVariable(BR.model, model)
     }
 
-    override fun onClick(view: View?) = presenter.onClick(view)
+    override fun onClick(view: View?) = presenterInterface.onClick(view)
 
     override fun onBootstrap() = setListeners()
 
-    override fun onDownloadFailed() = Snackbar.make(main_container, getString(R.string.network_issue), Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.retry)) { presenter.onCreate() }.show()
+    override fun onDownloadFailed() = Snackbar.make(main_container, getString(R.string.network_issue), Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.retry)) { presenterInterface.onCreate() }.show()
 
     override fun showPickerDialog(row: Int) {
         dialog.row = row

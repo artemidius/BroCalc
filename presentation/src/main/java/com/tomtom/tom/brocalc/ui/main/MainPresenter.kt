@@ -14,10 +14,10 @@ import com.tomtom.tom.domain.model.CurrencyRow
 import com.tomtom.tom.domain.model.ScreenViewModel
 import com.tomtom.tom.domain.usecases.*
 
-class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.Presenter, Interactor.Presentation {
+class MainPresenter: BasePresenter(), MainContract.Presenter, Interactor.Presentation {
 
     private val tag = this.javaClass.simpleName
-    val mainView:MainContract.View = mainActivity
+    lateinit var mainView:MainContract.View
 
     var currencies = context.resources.getStringArray(R.array.currencies)
 
@@ -34,9 +34,13 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
 
     var currentScreen = getInitialScreen()
 
-    override fun onCreate()       {
-        mainView.onDataUpdate(currentScreen)
+    override fun setActivity(mainActivity: MainActivity) {
+        mainView = mainActivity
+    }
+
+    override fun onCreate() {
         bootstrapUseCase.run(apiKey, backendInteractor, this, prefsInteractor)
+        mainView.onDataUpdate(currentScreen)
     }
 
     override fun activate() {
@@ -80,6 +84,7 @@ class MainPresenter(mainActivity: MainActivity): BasePresenter(), MainContract.P
             CurrencyRow(currencies[2], "0")
     )
 
+    override fun onStart()        {  Log.d(tag, "Activity triggered onStart()")     }
     override fun onResume()       {  Log.d(tag, "Activity triggered onResume()")    }
     override fun onPause()        {  Log.d(tag, "Activity triggered onPause()")     }
     override fun onDestroy()      {  Log.d(tag, "Activity triggered onDestroy()")   }

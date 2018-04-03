@@ -2,7 +2,9 @@
 
 ## DESCRIPTION
 
-Sample app. Was done as a test assignment for a company after job interview.
+Awesome app made on pure clean architecture fully covered with unit-tests and UI-tests. 
+
+Done as a test assignment for a company after job interview.
 
 ## ASSIGNMENT
 #### Currency converter

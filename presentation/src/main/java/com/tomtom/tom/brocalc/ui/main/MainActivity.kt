@@ -17,14 +17,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
 
-    override fun onClick(view: View?) = presenter.onClick(view)
-
     lateinit var binding: ViewDataBinding
+    lateinit var progressSnackBar:Snackbar
 
     val presenter: MainContract.Presenter = MainPresenter(this)
     val dialog = PickCurrencyDialogFragment()
     val fragmentManager = this@MainActivity.supportFragmentManager
-    lateinit var progressSnackBar:Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,22 +33,22 @@ class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
         presenter.onCreate()
     }
 
+    override fun onDataUpdate(model: ScreenViewModel) {
+        binding.setVariable(BR.model, model)
+    }
+
+    override fun onClick(view: View?) = presenter.onClick(view)
+
+    override fun onBootstrap() = setListeners()
+
+    override fun onDownloadFailed() = Snackbar.make(main_container, getString(R.string.network_issue), Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.retry)) { presenter.onCreate() }.show()
+
     override fun showPickerDialog(row: Int) {
         dialog.row = row
         dialog.show(fragmentManager, null)
     }
 
-    override fun onBootstrap() {
-        setListeners()
-    }
-
     override fun showProgressSnack(state: Boolean) = if (state) progressSnackBar.show() else progressSnackBar.dismiss()
-
-    override fun onDownloadFailed() =
-        Snackbar.make(main_container, getString(R.string.network_issue), Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.retry)) {
-                    presenter.onCreate()
-                }.show()
 
     fun getProgressSnack():Snackbar {
         val bar = Snackbar.make(main_container, "", Snackbar.LENGTH_INDEFINITE)
@@ -79,9 +77,4 @@ class MainActivity : BaseActivity(), MainContract.View, View.OnClickListener {
         back.setOnClickListener(this)
         point.setOnClickListener(this)
     }
-
-    override fun onDataUpdate(model: ScreenViewModel) {
-        binding.setVariable(BR.model, model)
-    }
-
 }

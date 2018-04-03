@@ -16,7 +16,7 @@ class PickCurrencyDialogFragment: DialogFragment() {
         val builder = AlertDialog.Builder(context!!)
         builder
                 .setItems(R.array.currencies, {
-                    dialog, which ->
+                    _, which ->
                     presenter!!.pickCurrency(which, row)
                 })
         return builder.create()

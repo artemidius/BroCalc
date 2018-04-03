@@ -12,6 +12,7 @@ class Entities {
         val otherRow = if (screenViewModel.upperRow.isActive) screenViewModel.lowerRow else screenViewModel.upperRow
 
         if (activeValue == 0f) otherRow.currencyValue = "0"
+
         else {
             val activeRate: Float = prefs.readString(activeType).toFloat()
             val otherRate: Float = prefs.readString(currencyToConvert).toFloat()
@@ -22,7 +23,6 @@ class Entities {
         }
 
         return screenViewModel
-
     }
 
     data class Result(
@@ -118,5 +118,4 @@ class Entities {
 
         return screenViewModel
     }
-
 }
